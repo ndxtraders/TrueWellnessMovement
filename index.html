@@ -1,3 +1,10 @@
+It is completely understandable to want the full file to avoid breaking anything! When combining layout changes, it is very easy to miss a closing `</div>` or overwrite the wrong CSS rule, which can break the whole page.
+
+I have taken the entire code, integrated your large Spotify player, preserved all your exact copywriting, applied the green highlight styling, and seamlessly built the new, balanced "Editorial" Founder layout. I also ensured that the "Classes" section grid didn't get misaligned by the new layout rules. 
+
+Here is your complete, finalized `index.html`. You can safely **delete everything** in your current file, paste this in from top to bottom, and commit the changes:
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -199,39 +206,73 @@
             margin-bottom: 50px;
         }
 
-        /* --- FOUNDER SECTION --- */
-        .founder-grid {
+        /* --- SPLIT GRID FOR CLASSES --- */
+        .split-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 60px;
             align-items: start;
         }
 
+        /* --- FOUNDER SECTION (Editorial Redesign) --- */
+        .founder-section {
+            background-color: var(--white);
+            padding: 100px 20px;
+        }
+        
+        .founder-grid {
+            display: grid;
+            grid-template-columns: 4fr 6fr; /* 40% Image, 60% Text ratio */
+            gap: 60px;
+            align-items: start;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
         .founder-img-wrapper img {
             width: 100%;
             border-radius: 8px;
-            margin-bottom: 20px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08); /* Subtle shadow for depth */
+            display: block; 
         }
 
-        .credentials-list {
-            list-style: none;
+        /* 2-Column Credentials Grid */
+        .credentials-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px 30px;
+            margin-bottom: 40px;
+            margin-top: 20px;
         }
-        .credentials-list li {
-            font-family: 'Playfair Display', serif;
-            font-size: 20px;
-            font-weight: 700;
-            color: var(--forest);
-            margin-bottom: 15px;
-            padding-bottom: 15px;
-            border-bottom: 1px solid #eee;
+
+        .credentials-grid li {
+            font-family: 'Lato', sans-serif;
+            font-size: 16px;
+            color: var(--text-dark);
+            position: relative;
+            padding-left: 20px;
+            border: none;
+        }
+
+        .credentials-grid li::before {
+            content: "✓"; /* Checkmark instead of bullet */
+            color: var(--green);
+            font-weight: bold;
+            font-size: 16px;
+            position: absolute;
+            left: 0;
+            top: 0;
         }
 
         /* --- FOOTER --- */
         footer { height: 400px; }
         footer img { width: 100%; height: 100%; object-fit: cover; }
 
+        /* --- MOBILE QUERIES --- */
         @media (max-width: 768px) {
+            .split-grid { grid-template-columns: 1fr; }
             .founder-grid { grid-template-columns: 1fr; }
+            .credentials-grid { grid-template-columns: 1fr; }
             .hero-wrap, .second-wrap { height: 75vh; }
         }
     </style>
@@ -301,7 +342,7 @@
                 <p style="font-size: 24px; font-weight: 700; margin-top: 15px;">Movement. Mindfulness. Whole-Child Wellness.</p>
             </div>
 
-            <div class="founder-grid">
+            <div class="split-grid">
                 <div>
                     <h3 class="forest-text mb-20" style="font-size: 28px;">About The Classes</h3>
                     <p class="mb-20">Boclaire’s wellness classes integrate developmentally appropriate practices that support physical strength, emotional balance, focus, and self-awareness.</p>
@@ -329,34 +370,41 @@
         </div>
     </section>
 
-    <section class="section-container">
+    <section class="founder-section">
         <div class="founder-grid">
+            
             <div class="founder-img-wrapper">
                 <img src="images/founder.jpg" alt="Boclaire Vaughn" />
-                <h3 class="forest-text mt-20 mb-20" style="font-size: 32px; margin-top: 20px;">Meet Boclaire</h3>
-                <ul class="credentials-list">
-                    <li>Natural Wellness Practitioner and Educator</li>
+            </div>
+            
+            <div>
+                <span class="green-text" style="text-transform: uppercase; letter-spacing: 2px; font-size: 14px;">Your Instructor</span>
+                <h2 class="forest-text mb-20" style="font-size: 42px;">Meet Boclaire</h2>
+                
+                <p class="mb-20">Boclaire is a Natural Wellness Practitioner certified in Child Development, Yoga, and Acupressure Therapy. She is the author of Children’s Meditation Stories and the founder of Sierra Yoga Center, Mindful Mom, and the True Wellness Movement.</p>
+                
+                <p class="mb-40">Boclaire has taught for many years in Tuolumne County, offering yoga, movement, and mindfulness-based education to children, families, and the community.</p>
+
+                <h3 class="forest-text" style="font-size: 24px; border-bottom: 2px solid var(--cream); padding-bottom: 10px;">Credentials</h3>
+                <ul class="custom-list credentials-grid">
+                    <li>Natural Wellness Practitioner & Educator</li>
                     <li>Certified Child Development Teacher</li>
                     <li>Certified Yoga Teacher</li>
                     <li>Certified Acupressure Teacher</li>
                     <li>Mindfulness Teacher</li>
-                    <li style="border-bottom: none;">Trauma-informed Wellness Practitioner</li>
+                    <li>Trauma-informed Wellness Practitioner</li>
                 </ul>
-            </div>
-            
-            <div>
-                <h3 class="forest-text mb-20" style="font-size: 32px;">About Your Instructor</h3>
-                <p class="mb-20">Boclaire is a Natural Wellness Practitioner certified in Child Development, Yoga, and Acupressure Therapy. She is the author of Children’s Meditation Stories and the founder of Sierra Yoga Center, Mindful Mom, and the True Wellness Movement.</p>
-                <p class="mb-40">Boclaire has taught for many years in Tuolumne County, offering yoga, movement, and mindfulness-based education to children, families, and the community.</p>
 
-                <h4 class="green-text mb-20" style="font-size: 20px; text-transform: uppercase;">She Has Facilitated:</h4>
+                <h3 class="forest-text mb-20" style="font-size: 24px; margin-top: 20px;">She Has Facilitated:</h3>
                 <ul class="custom-list">
                     <li>Kids' yoga and movement classes</li>
                     <li>Mindful Parenting workshops</li>
                     <li>Growing Mindful Minds workshops</li>
                 </ul>
 
-                <p style="font-weight: 700; color: var(--forest);">She has also served for many years as a contract instructor with the Tuolumne County Recreation Department.</p>
+                <p style="font-weight: 700; color: var(--forest); margin-top: 30px; padding: 20px; background-color: var(--cream); border-left: 4px solid var(--green);">
+                    She has also served for many years as a contract instructor with the Tuolumne County Recreation Department.
+                </p>
             </div>
         </div>
     </section>
@@ -367,3 +415,4 @@
 
 </body>
 </html>
+```
