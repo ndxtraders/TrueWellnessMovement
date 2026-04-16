@@ -11,6 +11,13 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
 
+    <script>
+        (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
+        .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,
+        n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
+        (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
+        ml('account', '53138');
+    </script>
     <style>
         :root {
             --terracotta: #8C4339;
@@ -35,6 +42,10 @@
 
         h1, h2, h3, h4 { font-family: 'Playfair Display', serif; font-weight: 700; line-height: 1.2; }
 
+        /* --- VISIBILITY TOGGLES (Desktop vs Mobile Copy) --- */
+        .mobile-only { display: none !important; }
+        .desktop-only { display: block !important; }
+
         /* --- HERO 1 --- */
         .hero-wrap {
             position: relative;
@@ -42,7 +53,7 @@
             height: 85vh;
             min-height: 600px;
             display: flex;
-            align-items: flex-start; /* Moved from center to top */
+            align-items: flex-start; 
             justify-content: center;
             overflow: hidden;
         }
@@ -52,15 +63,14 @@
             top: 0; left: 0;
             width: 100%; height: 100%;
             object-fit: cover;
-            object-position: center bottom; /* Shows the kids at the bottom */
+            object-position: center bottom; 
             z-index: 1;
         }
 
         .hero-overlay {
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
-            /* Significantly lightened the grey overlay */
-            background: linear-gradient(to bottom, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0) 30%, rgba(0,0,0,0.15) 100%);
+            background: linear-gradient(to bottom, rgba(255,255,255,0.2) 0%, rgba(0,0,0,0) 30%, rgba(0,0,0,0.15) 100%);
             z-index: 2;
         }
 
@@ -70,27 +80,24 @@
             text-align: center;
             width: 90%;
             max-width: 1000px;
-            margin-top: 15vh; /* Pushes the text down slightly from the very top edge */
+            margin-top: 15vh; 
         }
 
         .hero-eyebrow {
             font-family: 'Lato', sans-serif;
-            font-size: clamp(16px, 3vw, 24px);
+            font-size: clamp(14px, 3vw, 24px);
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 2px;
             margin-bottom: 20px;
-            display: block;
-            color: var(--green); /* Applied requested color */
-            /* Subtle glow to ensure the green is readable against trees */
-            text-shadow: 0 2px 8px rgba(255,255,255,0.8), 0 2px 4px rgba(0,0,0,0.3);
+            color: #1F370C; /* Darker forest green as requested */
+            text-shadow: 0 2px 10px rgba(255,255,255,0.9), 0 0 20px rgba(255,255,255,0.6); /* White glow to pop against trees */
         }
 
         .hero-text h1 {
-            font-size: clamp(36px, 6vw, 64px);
-            color: var(--terracotta); /* Applied requested color */
-            /* Subtle glow to ensure the terracotta is readable */
-            text-shadow: 0 2px 10px rgba(255,255,255,0.7), 0 2px 4px rgba(0,0,0,0.3);
+            font-size: clamp(32px, 6vw, 64px);
+            color: var(--terracotta); 
+            text-shadow: 0 2px 10px rgba(255,255,255,0.8), 0 2px 4px rgba(0,0,0,0.3);
         }
 
         /* --- HERO 2 (GARDEN) --- */
@@ -113,7 +120,7 @@
 
         .second-text {
             position: absolute;
-            top: 15%; /* Positioned near the top so it doesn't cover people */
+            top: 15%; 
             left: 50%;
             transform: translateX(-50%);
             z-index: 3;
@@ -125,7 +132,7 @@
         }
 
         .second-text p {
-            font-size: clamp(28px, 4vw, 48px);
+            font-size: clamp(24px, 4vw, 48px);
             font-weight: 700;
         }
 
@@ -145,7 +152,7 @@
         /* --- INITIATIVES / THREE COLUMNS --- */
         .initiatives-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 40px;
             margin-top: 50px;
             margin-bottom: 50px;
@@ -213,7 +220,7 @@
             align-items: start;
         }
 
-        /* --- FOUNDER SECTION (Editorial Redesign) --- */
+        /* --- FOUNDER SECTION --- */
         .founder-section {
             background-color: var(--white);
             padding: 100px 20px;
@@ -221,7 +228,7 @@
         
         .founder-grid {
             display: grid;
-            grid-template-columns: 4fr 6fr; /* 40% Image, 60% Text ratio */
+            grid-template-columns: 4fr 6fr; 
             gap: 60px;
             align-items: start;
             max-width: 1100px;
@@ -231,11 +238,10 @@
         .founder-img-wrapper img {
             width: 100%;
             border-radius: 8px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08); /* Subtle shadow for depth */
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08); 
             display: block; 
         }
 
-        /* 2-Column Credentials Grid */
         .credentials-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -254,7 +260,7 @@
         }
 
         .credentials-grid li::before {
-            content: "✓"; /* Checkmark instead of bullet */
+            content: "✓"; 
             color: var(--green);
             font-weight: bold;
             font-size: 16px;
@@ -263,16 +269,64 @@
             top: 0;
         }
 
+        /* --- MAILERLITE SECTION --- */
+        .newsletter-section {
+            background-color: var(--forest);
+            color: var(--white);
+            padding: 80px 20px;
+            text-align: center;
+        }
+        .mailerlite-wrapper {
+            max-width: 600px;
+            margin: 0 auto;
+            background: var(--white);
+            padding: 40px;
+            border-radius: 8px;
+            color: var(--text-dark);
+        }
+
         /* --- FOOTER --- */
         footer { height: 400px; }
         footer img { width: 100%; height: 100%; object-fit: cover; }
 
-        /* --- MOBILE QUERIES --- */
+        /* =========================================
+           MOBILE-FIRST OVERHAUL
+           ========================================= */
         @media (max-width: 768px) {
-            .split-grid { grid-template-columns: 1fr; }
-            .founder-grid { grid-template-columns: 1fr; }
-            .credentials-grid { grid-template-columns: 1fr; }
-            .hero-wrap, .second-wrap { height: 75vh; }
+            /* Text Toggles */
+            .desktop-only { display: none !important; }
+            .mobile-only { display: block !important; }
+
+            /* 1. Fix Hero Heights & Text Placement */
+            .hero-wrap, .second-wrap { 
+                height: 70vh; 
+                min-height: 450px; 
+            }
+            .hero-text { margin-top: 5vh; } 
+            .second-text { top: 10%; }
+
+            /* 2. Slash Padding to remove trapped white space */
+            .section-container { padding: 50px 20px; }
+            .founder-section { padding: 50px 20px; }
+            .newsletter-section { padding: 50px 20px; }
+            .podcast-wrapper { padding: 20px; margin-bottom: 40px; }
+
+            /* 3. Tighten Grid Gaps */
+            .split-grid { grid-template-columns: 1fr; gap: 40px; }
+            .founder-grid { grid-template-columns: 1fr; gap: 40px; }
+            .credentials-grid { grid-template-columns: 1fr; gap: 10px; }
+            
+            /* 4. Touch-Friendly Buttons */
+            .btn { 
+                display: block; 
+                width: 100%; 
+                text-align: center; 
+                padding: 18px 20px;
+            }
+
+            /* 5. Typography Tweaks */
+            .forest-text { font-size: 32px !important; } 
+            .initiatives-grid { gap: 30px; margin-top: 30px; margin-bottom: 30px; }
         }
     </style>
 </head>
@@ -282,8 +336,11 @@
         <div class="hero-overlay"></div>
         <img src="images/hero.jpg" alt="Children exploring nature" />
         <div class="hero-text">
-            <span class="hero-eyebrow">True Wellness Begins with Movement in Nature</span>
-            <h1>Heavenly Herb Garden &<br>Children's Wellness Center</h1>
+            <span class="hero-eyebrow desktop-only">True Wellness Begins with Movement in Nature</span>
+            <h1 class="desktop-only">Heavenly Herb Garden &<br>Children's Wellness Center</h1>
+            
+            <span class="hero-eyebrow mobile-only">Nature-Based Wellness</span>
+            <h1 class="mobile-only">Children's Wellness Center<br>& Herb Garden</h1>
         </div>
     </header>
 
@@ -315,20 +372,20 @@
                 <p>truewellnessmovement@gmail.com</p>
             </div>
             <div class="initiative-box">
-                <h3>Free Outdoor Kid's Wellness Classes</h3>
+                <h3>Free Kid's Classes</h3>
                 <p>Available at your location.</p>
             </div>
             <div class="initiative-box">
-                <h3>Sponsorships Available</h3>
+                <h3>Sponsorships</h3>
                 <p>Help create a better community.</p>
             </div>
         </div>
 
-        <div style="background-color: var(--cream); padding: 50px; border-radius: 8px;">
+        <div style="background-color: var(--cream); padding: 40px 20px; border-radius: 8px;">
             <p class="mb-20" style="font-weight: 700;">Want to improve our children's mental health and help create a better community? Become a sponsor or donate today</p>
             <p class="mb-20" style="font-style: italic;">All funds are used to create the center</p>
             <h3 class="forest-text mb-20">Help Fund Our Center</h3>
-            <a href="https://donorbox.org/" class="btn">Go To Our Donor Box Page</a>
+            <a href="https://www.donorbox.org/true-wellness" class="btn">Go To Our Donor Box Page</a>
         </div>
 
     </section>
@@ -405,6 +462,15 @@
                     She has also served for many years as a contract instructor with the Tuolumne County Recreation Department.
                 </p>
             </div>
+        </div>
+    </section>
+
+    <section class="newsletter-section">
+        <h2 style="font-family: 'Playfair Display', serif; font-size: 36px; margin-bottom: 10px;">Join the Movement</h2>
+        <p style="margin-bottom: 30px; font-size: 20px;">Subscribe for updates on community classes and the garden build.</p>
+        
+        <div class="mailerlite-wrapper">
+            <div class="ml-embedded" data-form="4tjIUv"></div>
         </div>
     </section>
 
