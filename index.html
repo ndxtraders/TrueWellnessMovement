@@ -90,8 +90,8 @@
             text-transform: uppercase;
             letter-spacing: 2px;
             margin-bottom: 20px;
-            color: #1F370C; /* Darker forest green as requested */
-            text-shadow: 0 2px 10px rgba(255,255,255,0.9), 0 0 20px rgba(255,255,255,0.6); /* White glow to pop against trees */
+            color: #1F370C; 
+            text-shadow: 0 2px 10px rgba(255,255,255,0.9), 0 0 20px rgba(255,255,255,0.6); 
         }
 
         .hero-text h1 {
@@ -218,6 +218,91 @@
             grid-template-columns: 1fr 1fr;
             gap: 60px;
             align-items: start;
+        }
+
+        /* --- ACCORDION (EXPANDED CLASSES) --- */
+        .accordion-section {
+            background-color: var(--white);
+            padding: 60px 20px;
+        }
+        
+        .details-group {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        details {
+            background: var(--cream);
+            border-radius: 8px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        details[open] {
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            background: var(--white);
+            border: 1px solid #EAEAEA;
+        }
+
+        summary {
+            padding: 20px;
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--forest);
+            cursor: pointer;
+            list-style: none; /* Hides default arrow */
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        summary::-webkit-details-marker {
+            display: none; /* Hides arrow in Safari */
+        }
+
+        summary::after {
+            content: '+';
+            font-family: 'Lato', sans-serif;
+            color: var(--green);
+            font-size: 28px;
+            line-height: 1;
+            transition: transform 0.3s ease;
+        }
+
+        details[open] summary::after {
+            content: '−';
+            color: var(--terracotta);
+        }
+
+        .details-content {
+            padding: 0 20px 20px 20px;
+            color: var(--text-dark);
+            border-top: 1px solid #EAEAEA;
+            margin-top: 10px;
+            padding-top: 15px;
+        }
+
+        .tools-box {
+            background-color: var(--forest);
+            color: var(--white);
+            padding: 40px;
+            border-radius: 8px;
+            margin-top: 40px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .tools-box li {
+            color: var(--white); /* Overrides default list color */
+            margin-bottom: 10px;
+        }
+        .tools-box li::before {
+            color: var(--cream); /* Makes the bullet pop against dark green */
         }
 
         /* --- FOUNDER SECTION --- */
@@ -357,7 +442,7 @@
         <div class="podcast-wrapper">
             <h3 class="forest-text mb-20" style="font-size: 28px;">Listen to the Podcast</h3>
             <p class="mb-20" style="font-weight: 700;">True Wellness Movement Podcast</p>
-            <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/episode/1gTuKRVYZlKgkISZ52EeEW?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/episode/1gTuKRVYZlKgkISZ52EeEW?utm\_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
         </div>
 
         <h2 class="forest-text mb-20" style="font-size: 36px;">Donate to Create a Healing Space for Kids</h2>
@@ -426,6 +511,89 @@
         </div>
     </section>
 
+    <section class="accordion-section">
+        <div class="section-container">
+            <div class="text-center mb-40">
+                <h2 class="forest-text" style="font-size: 36px;">Explore Our Class Menu</h2>
+                <p style="font-size: 18px; margin-top: 10px; color: var(--text-light);">Tap any class below to read the full description and discover what to expect.</p>
+            </div>
+
+            <div class="details-group">
+                
+                <details>
+                    <summary>Nature’s Sensory Gym (Herbal Garden Session)</summary>
+                    <div class="details-content">
+                        <p>A hands-on activity in the herbal garden growing herbs and plants. Research shows that nature-based sensory experiences can calm the brain, improve focus, and support the development of new neural pathways in children.</p>
+                    </div>
+                </details>
+
+                <details>
+                    <summary>Meditative Wellness Walk</summary>
+                    <div class="details-content">
+                        <p>A slow, mindful walk in nature that combines breathwork, acupressure points, and awareness to create a deep sense of calm and presence.</p>
+                    </div>
+                </details>
+
+                <details>
+                    <summary>Wellness Walk (Mindful Movement Workout)</summary>
+                    <div class="details-content">
+                        <p>A gentle full-body workout in nature that combines walking, breathwork, and mindful movement to build strength and clarity.</p>
+                    </div>
+                </details>
+
+                <details>
+                    <summary>Body Prayer Session</summary>
+                    <div class="details-content">
+                        <p>A faith-based practice that blends prayer, breath, and gentle movement to support spiritual connection and inner peace.</p>
+                    </div>
+                </details>
+
+                <details>
+                    <summary>Kids’ Birthday Hike Party</summary>
+                    <div class="details-content">
+                        <p>A fun and mindful outdoor celebration where children explore nature, play, and celebrate with joy and calm.</p>
+                    </div>
+                </details>
+
+                <details>
+                    <summary>Birthday Hike Party for Adults</summary>
+                    <div class="details-content">
+                        <p>A reflective and meaningful nature hike that celebrates personal growth, life transitions, and new intentions.</p>
+                    </div>
+                </details>
+
+                <details>
+                    <summary>RV Wellness Retreat</summary>
+                    <div class="details-content">
+                        <p>A peaceful nature retreat where guests stay in their own RV while enjoying rest, reflection, and optional wellness experiences.</p>
+                    </div>
+                </details>
+
+            </div>
+
+            <div class="tools-box">
+                <h3 style="font-size: 28px; margin-bottom: 15px; color: var(--cream);">The Wellness Toolkit</h3>
+                <p style="margin-bottom: 25px; font-weight: 700; font-size: 20px; border-bottom: 1px solid rgba(255,255,255,0.2); padding-bottom: 15px;">
+                    Structure: 40 minutes of class time and 20 minutes of closing practice.
+                </p>
+                <p style="margin-bottom: 20px; font-style: italic;">All classes are designed based on individual needs and combinations of the wellness tools below:</p>
+                
+                <ul class="custom-list">
+                    <li><strong>Creative somatic movement:</strong> Helps release emotions, build body awareness, and support inner balance.</li>
+                    <li><strong>Fun neuro movement:</strong> Playful brain-body exercise that strengthens coordination, focus, and overall brain health for both children and adults.</li>
+                    <li><strong>Cognitive function support for adults:</strong> Simple practices designed to improve memory, sharpen focus, and bring more mental clarity into daily life.</li>
+                    <li><strong>Yoga for mind and body:</strong> A calming yoga practice that increases flexibility, strengthens the body, and creates a more peaceful, focused mind.</li>
+                    <li><strong>Meditation and breathing techniques:</strong> Easy-to-follow breathing and mindfulness practices that help calm the mind and improve focus.</li>
+                    <li><strong>Mindful living practices:</strong> Everyday tools, including mindful eating, that support a healthier, more balanced lifestyle.</li>
+                    <li><strong>Therapeutic voice and acupressure:</strong> Gentle voice sound work and simple pressure points that help regulate the nervous system and promote relaxation.</li>
+                    <li>Tapping</li>
+                    <li>Yoga Dance</li>
+                </ul>
+            </div>
+
+        </div>
+    </section>
+
     <section class="founder-section">
         <div class="founder-grid">
             
@@ -439,45 +607,4 @@
                 
                 <p class="mb-20">Boclaire is a Natural Wellness Practitioner certified in Child Development, Yoga, and Acupressure Therapy. She is the author of Children’s Meditation Stories and the founder of Sierra Yoga Center, Mindful Mom, and the True Wellness Movement.</p>
                 
-                <p class="mb-40">Boclaire has taught for many years in Tuolumne County, offering yoga, movement, and mindfulness-based education to children, families, and the community.</p>
-
-                <h3 class="forest-text" style="font-size: 24px; border-bottom: 2px solid var(--cream); padding-bottom: 10px;">Credentials</h3>
-                <ul class="custom-list credentials-grid">
-                    <li>Natural Wellness Practitioner & Educator</li>
-                    <li>Certified Child Development Teacher</li>
-                    <li>Certified Yoga Teacher</li>
-                    <li>Certified Acupressure Teacher</li>
-                    <li>Mindfulness Teacher</li>
-                    <li>Trauma-informed Wellness Practitioner</li>
-                </ul>
-
-                <h3 class="forest-text mb-20" style="font-size: 24px; margin-top: 20px;">She Has Facilitated:</h3>
-                <ul class="custom-list">
-                    <li>Kids' yoga and movement classes</li>
-                    <li>Mindful Parenting workshops</li>
-                    <li>Growing Mindful Minds workshops</li>
-                </ul>
-
-                <p style="font-weight: 700; color: var(--forest); margin-top: 30px; padding: 20px; background-color: var(--cream); border-left: 4px solid var(--green);">
-                    She has also served for many years as a contract instructor with the Tuolumne County Recreation Department.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <section class="newsletter-section">
-        <h2 style="font-family: 'Playfair Display', serif; font-size: 36px; margin-bottom: 10px;">Join the Movement</h2>
-        <p style="margin-bottom: 30px; font-size: 20px;">Subscribe for updates on community classes and the garden build.</p>
-        
-        <div class="mailerlite-wrapper">
-            <div class="ml-embedded" data-form="4tjIUv"></div>
-        </div>
-    </section>
-
-    <footer>
-        <img src="images/mountain-bottom.jpg" alt="Mountain valley background" />
-    </footer>
-
-</body>
-</html>
-
+                <p class="mb-40">
