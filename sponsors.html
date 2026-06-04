@@ -618,7 +618,22 @@
         <h2>Ready to Sponsor?</h2>
         <p>Tell us which level interests you. Boclaire will follow up personally within 48 hours.</p>
 
-        <form class="contact-form" action="mailto:truewellnessmovement@gmail.com" method="POST" enctype="text/plain">
+        <!-- SUCCESS STATE -->
+        <div id="form-success" style="display:none; background: var(--white); max-width: 600px; margin: 0 auto; padding: 50px 40px; border-radius: 8px; text-align: center;">
+            <div style="font-size: 48px; margin-bottom: 20px;">🌿</div>
+            <h3 style="font-family: 'Playfair Display', serif; color: var(--forest); font-size: 28px; margin-bottom: 15px;">Thank You!</h3>
+            <p style="color: var(--text-light); font-size: 17px; line-height: 1.7;">Your sponsorship inquiry has been received. Boclaire will follow up personally within 48 hours.</p>
+        </div>
+
+        <form id="sponsor-form-el" class="contact-form" action="https://api.web3forms.com/submit" method="POST">
+
+            <!-- Web3Forms config -->
+            <input type="hidden" name="access_key" value="44e85080-7afb-4ca2-8c9f-4c7485323760">
+            <input type="hidden" name="subject" value="New Sponsorship Inquiry — True Wellness Movement">
+            <input type="hidden" name="from_name" value="True Wellness Movement Sponsors Page">
+            <!-- Honeypot spam protection -->
+            <input type="checkbox" name="botcheck" style="display:none">
+
             <div class="form-group">
                 <label for="name">Your Name</label>
                 <input type="text" id="name" name="name" placeholder="First and last name" required />
@@ -639,20 +654,62 @@
                 <label for="tier">Sponsorship Level</label>
                 <select id="tier" name="tier" required>
                     <option value="" disabled selected>Select a level</option>
-                    <option value="California Poppy — $167/month (1 child)">🌸 California Poppy — $167/month — 1 child</option>
-                    <option value="Yerba Santa — $500/month (3 children)">🌿 Yerba Santa — $500/month — 3 children</option>
-                    <option value="Elderberry — $1,000/month (6 children)">🌳 Elderberry — $1,000/month — 6 children</option>
-                    <option value="Oak — $2,000/month (12 children)">🌲 Oak — $2,000/month — 12 children</option>
+                    <option value="California Poppy — $167/month (1 child)">California Poppy — $167/month — 1 child</option>
+                    <option value="Yerba Santa — $500/month (3 children)">Yerba Santa — $500/month — 3 children</option>
+                    <option value="Elderberry — $1,000/month (6 children)">Elderberry — $1,000/month — 6 children</option>
+                    <option value="Oak — $2,000/month (12 children)">Oak — $2,000/month — 12 children</option>
                 </select>
             </div>
             <div class="form-group">
                 <label for="message">Anything you'd like us to know?</label>
                 <textarea id="message" name="message" placeholder="Questions, comments, or how you heard about us..."></textarea>
             </div>
-            <button type="submit" class="form-submit">Send My Sponsorship Inquiry</button>
+
+            <div id="form-error" style="display:none; background:#fff3f3; border:1px solid #f5c6cb; color:#721c24; padding:12px 16px; border-radius:4px; font-size:15px; margin-bottom:16px;"></div>
+
+            <button type="submit" class="form-submit" id="form-btn">Send My Sponsorship Inquiry</button>
             <p class="form-note">Boclaire will follow up personally within 48 hours.</p>
         </form>
     </section>
+
+    <script>
+        const form = document.getElementById('sponsor-form-el');
+        const btn = document.getElementById('form-btn');
+        const successEl = document.getElementById('form-success');
+        const errorEl = document.getElementById('form-error');
+
+        form.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            btn.disabled = true;
+            btn.textContent = 'Sending…';
+            errorEl.style.display = 'none';
+
+            const formData = new FormData(form);
+
+            try {
+                const res = await fetch('https://api.web3forms.com/submit', {
+                    method: 'POST',
+                    body: formData
+                });
+                const data = await res.json();
+
+                if (data.success) {
+                    form.style.display = 'none';
+                    successEl.style.display = 'block';
+                } else {
+                    errorEl.textContent = data.message || 'Something went wrong. Please try again.';
+                    errorEl.style.display = 'block';
+                    btn.disabled = false;
+                    btn.textContent = 'Send My Sponsorship Inquiry';
+                }
+            } catch (err) {
+                errorEl.textContent = 'Network error. Please try again.';
+                errorEl.style.display = 'block';
+                btn.disabled = false;
+                btn.textContent = 'Send My Sponsorship Inquiry';
+            }
+        });
+    </script>
 
     <!-- FOOTER -->
     <footer class="simple-footer">
