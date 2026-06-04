@@ -327,8 +327,89 @@
         }
 
         /* --- FOOTER --- */
-        footer { height: 400px; }
-        footer img { width: 100%; height: 100%; object-fit: cover; }
+        footer {
+            position: relative;
+            height: 400px;
+            overflow: hidden;
+        }
+        footer img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        .footer-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.5) 60%, transparent 100%);
+            padding: 40px 30px 30px;
+            color: var(--white);
+        }
+        .footer-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .footer-row-1 {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 16px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+        }
+        .footer-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            color: var(--white);
+            text-decoration: none;
+        }
+        .footer-nav {
+            display: flex;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+        .footer-nav a {
+            color: rgba(255,255,255,0.85);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.2s ease;
+        }
+        .footer-nav a:hover { color: var(--green); }
+        .footer-social a {
+            color: var(--green);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 700;
+        }
+        .footer-row-2 {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+            font-size: 13px;
+            color: rgba(255,255,255,0.7);
+        }
+        .footer-row-2 a {
+            color: rgba(255,255,255,0.85);
+            text-decoration: none;
+        }
+        .footer-row-2 a:hover { color: var(--green); }
+        .footer-501c3 {
+            font-style: italic;
+            color: rgba(255,255,255,0.6);
+        }
+        @media (max-width: 768px) {
+            .footer-row-1 { flex-direction: column; align-items: flex-start; gap: 14px; }
+            .footer-row-2 { flex-direction: column; align-items: flex-start; gap: 6px; }
+        }
 
         /* =========================================
            MOBILE-FIRST OVERHAUL
@@ -382,17 +463,16 @@
 
     <section class="section-container text-center">
 
-        <div class="podcast-wrapper">
-            <h3 class="forest-text mb-20" style="font-size: 28px;">Listen to the Podcast</h3>
-            <p class="mb-20" style="font-weight: 700;">True Wellness Movement Podcast</p>
-            <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/episode/1gTuKRVYZlKgkISZ52EeEW?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-        </div>
-
         <h2 class="forest-text mb-20" style="font-size: 36px;">Donate to Create a Healing Space for Kids</h2>
         <p class="mb-20" style="font-size: 20px; max-width: 800px; margin-left: auto; margin-right: auto;">
             We are building an outdoor wellness and herbal garden where children learn mindfulness, movement, and emotional balance through nature-based learning
         </p>
         <p class="green-text mb-40">Community-led • Nature-based • Nonprofit initiative</p>
+
+        <!-- 501c3 NOTE -->
+        <p style="font-size: 14px; color: var(--text-light); font-style: italic; margin-bottom: 40px;">
+            Currently pursuing 501(c)(3) Charitable Organization status. All donations support the True Wellness Movement program directly.
+        </p>
 
         <div class="initiatives-grid">
             <div class="initiative-box">
@@ -403,9 +483,11 @@
                 <h3>Wellness Classes</h3>
                 <p>Also available at your location.</p>
             </div>
-            <div class="initiative-box">
-                <h3>Sponsorships</h3>
-                <p>Help create a better community.</p>
+            <!-- SPONSORSHIP BOX — visually differentiated -->
+            <div class="initiative-box" style="background-color: var(--forest); border-radius: 8px; padding: 30px; text-align: left;">
+                <h3 style="color: var(--white); font-size: 22px; margin-bottom: 12px;">Sponsor a Child</h3>
+                <p style="color: rgba(255,255,255,0.85); font-size: 16px; line-height: 1.7; margin-bottom: 20px;">Your business can put a local child in wellness classes for as little as $167/month (only $10.42 per child, per hour). Sponsors are recognized across our website, newsletter, and social channels as community leaders.</p>
+                <a href="sponsors.html" class="btn" style="background-color: var(--green); font-size: 14px; padding: 12px 24px;">See Sponsorship Levels →</a>
             </div>
         </div>
 
@@ -446,6 +528,7 @@
                 <p class="green-text" style="letter-spacing: 2px; text-transform: uppercase;">True Wellness Movement</p>
                 <h2 class="forest-text" style="font-size: 42px;">Classes With Boclaire</h2>
                 <p style="font-size: 24px; font-weight: 700; margin-top: 15px;">Movement. Mindfulness. Whole-Child Wellness.</p>
+                <p style="margin-top: 14px; display: inline-block; background-color: var(--terracotta); color: var(--white); font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; padding: 6px 18px; border-radius: 20px;">Classes Begin Fall 2026</p>
             </div>
 
             <div class="split-grid">
@@ -599,8 +682,43 @@
         </div>
     </section>
 
+    <!-- PODCAST — moved below newsletter -->
+    <section style="background-color: #F9F9F9; padding: 60px 20px;">
+        <div class="podcast-wrapper" style="max-width: 800px; margin: 0 auto; margin-bottom: 0;">
+            <h3 class="forest-text mb-20" style="font-size: 28px; text-align: center;">Listen to the Podcast</h3>
+            <p class="mb-20" style="font-weight: 700; text-align: center;">True Wellness Movement Podcast</p>
+            <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/episode/1gTuKRVYZlKgkISZ52EeEW?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+    </section>
+
     <footer>
-        <img src="images/mountain-bottom.jpg" alt="Mountain valley background" />
+        <img src="images/mountain-bottom.jpg" alt="Mountain valley — Tuolumne County, California" />
+        <div class="footer-overlay">
+            <div class="footer-inner">
+                <!-- Row 1: Logo · Nav · Social -->
+                <div class="footer-row-1">
+                    <a href="index.html" class="footer-logo">True Wellness Movement</a>
+                    <nav class="footer-nav">
+                        <a href="index.html">Home</a>
+                        <a href="sponsors.html">Become a Sponsor</a>
+                        <a href="https://www.donorbox.org/true-wellness" target="_blank">Donate</a>
+                    </nav>
+                    <div class="footer-social">
+                        <a href="https://linktr.ee/truewellnessmovement" target="_blank">Follow Us on Social →</a>
+                    </div>
+                </div>
+                <!-- Row 2: Contact · Location · 501c3 -->
+                <div class="footer-row-2">
+                    <span>Jamestown · Tuolumne County, CA</span>
+                    <span>
+                        <a href="tel:+12093528507">(209) 352-8507</a>
+                        &nbsp;·&nbsp;
+                        <a href="mailto:truewellnessmovement@gmail.com">truewellnessmovement@gmail.com</a>
+                    </span>
+                    <span class="footer-501c3">Currently pursuing 501(c)(3) Charitable Organization status · All donations support the True Wellness Movement program</span>
+                </div>
+            </div>
+        </div>
     </footer>
 
 </body>
