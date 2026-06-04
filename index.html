@@ -4,9 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>True Wellness Movement | Heavenly Herb Garden & Children's Wellness Center</title>
-    
+
     <meta name="description" content="We are building an outdoor wellness and herbal garden where children learn mindfulness, movement, and emotional balance through nature-based learning.">
-    
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
@@ -53,7 +53,7 @@
             height: 85vh;
             min-height: 600px;
             display: flex;
-            align-items: flex-start; 
+            align-items: flex-start;
             justify-content: center;
             overflow: hidden;
         }
@@ -63,7 +63,7 @@
             top: 0; left: 0;
             width: 100%; height: 100%;
             object-fit: cover;
-            object-position: center bottom; 
+            object-position: center bottom;
             z-index: 1;
         }
 
@@ -80,7 +80,7 @@
             text-align: center;
             width: 90%;
             max-width: 1000px;
-            margin-top: 15vh; 
+            margin-top: 15vh;
         }
 
         .hero-eyebrow {
@@ -90,13 +90,13 @@
             text-transform: uppercase;
             letter-spacing: 2px;
             margin-bottom: 20px;
-            color: #1F370C; 
+            color: #1F370C;
             text-shadow: 0 2px 10px rgba(255,255,255,0.9), 0 0 20px rgba(255,255,255,0.6);
         }
 
         .hero-text h1 {
             font-size: clamp(32px, 6vw, 64px);
-            color: var(--terracotta); 
+            color: var(--terracotta);
             text-shadow: 0 2px 10px rgba(255,255,255,0.8), 0 2px 4px rgba(0,0,0,0.3);
         }
 
@@ -120,7 +120,7 @@
 
         .second-text {
             position: absolute;
-            top: 15%; 
+            top: 15%;
             left: 50%;
             transform: translateX(-50%);
             z-index: 3;
@@ -250,10 +250,10 @@
             background-color: var(--white);
             padding: 100px 20px;
         }
-        
+
         .founder-grid {
             display: grid;
-            grid-template-columns: 4fr 6fr; 
+            grid-template-columns: 4fr 6fr;
             gap: 60px;
             align-items: start;
             max-width: 1100px;
@@ -263,8 +263,8 @@
         .founder-img-wrapper img {
             width: 100%;
             border-radius: 8px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08); 
-            display: block; 
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            display: block;
         }
 
         .credentials-grid {
@@ -285,13 +285,29 @@
         }
 
         .credentials-grid li::before {
-            content: "✓"; 
+            content: "✓";
             color: var(--green);
             font-weight: bold;
             font-size: 16px;
             position: absolute;
             left: 0;
             top: 0;
+        }
+
+        /* --- TWO-TRACK CTA --- */
+        .cta-split-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin-top: 20px;
+        }
+
+        /* --- SPONSOR BAR --- */
+        .sponsor-bar {
+            margin-top: 50px;
+            text-align: center;
+            padding-top: 40px;
+            border-top: 1px solid #EAEAEA;
         }
 
         /* --- MAILERLITE SECTION --- */
@@ -322,7 +338,7 @@
             .mobile-only { display: block !important; }
 
             .hero-wrap, .second-wrap { height: 70vh; min-height: 450px; }
-            .hero-text { margin-top: 5vh; } 
+            .hero-text { margin-top: 5vh; }
             .second-text { top: 10%; }
 
             .section-container { padding: 50px 20px; }
@@ -333,10 +349,11 @@
             .split-grid { grid-template-columns: 1fr; gap: 40px; }
             .founder-grid { grid-template-columns: 1fr; gap: 40px; }
             .credentials-grid { grid-template-columns: 1fr; gap: 10px; }
-            
+            .cta-split-grid { grid-template-columns: 1fr; }
+
             .btn { display: block; width: 100%; text-align: center; padding: 18px 20px; }
 
-            .forest-text { font-size: 32px !important; } 
+            .forest-text { font-size: 32px !important; }
             .initiatives-grid { gap: 30px; margin-top: 30px; margin-bottom: 30px; }
         }
     </style>
@@ -349,7 +366,7 @@
         <div class="hero-text">
             <span class="hero-eyebrow desktop-only">True Wellness Begins with Movement in Nature</span>
             <h1 class="desktop-only">Heavenly Herb Garden &<br>Children's Wellness Center</h1>
-            
+
             <span class="hero-eyebrow mobile-only">Nature-Based Wellness</span>
             <h1 class="mobile-only">Children's Wellness Center<br>& Herb Garden</h1>
         </div>
@@ -364,7 +381,7 @@
     </section>
 
     <section class="section-container text-center">
-        
+
         <div class="podcast-wrapper">
             <h3 class="forest-text mb-20" style="font-size: 28px;">Listen to the Podcast</h3>
             <p class="mb-20" style="font-weight: 700;">True Wellness Movement Podcast</p>
@@ -392,11 +409,33 @@
             </div>
         </div>
 
-        <div style="background-color: var(--cream); padding: 40px 20px; border-radius: 8px;">
-            <p class="mb-20" style="font-weight: 700;">Want to improve our children's mental health and help create a better community? Become a sponsor or donate today</p>
-            <p class="mb-20" style="font-style: italic;">All funds are used to create the center and provide free kids' wellness classes</p>
-            <h3 class="forest-text mb-20">Help Fund Our Center</h3>
-            <a href="https://www.donorbox.org/true-wellness" class="btn">Go To Our Donor Box Page</a>
+        <!-- TWO-TRACK CTA -->
+        <div class="cta-split-grid">
+
+            <div style="background-color: var(--cream); padding: 36px 28px; border-radius: 8px; text-align: center;">
+                <p style="font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--green); margin-bottom: 12px;">One-Time Gift</p>
+                <h3 class="forest-text mb-20" style="font-size: 24px;">Make a Donation</h3>
+                <p style="font-size: 16px; color: var(--text-light); margin-bottom: 24px; line-height: 1.6;">Every dollar goes directly to building the center and providing free wellness classes for kids.</p>
+                <a href="https://www.donorbox.org/true-wellness" class="btn" style="font-size: 15px;">Donate Now</a>
+            </div>
+
+            <div style="background-color: var(--forest); padding: 36px 28px; border-radius: 8px; text-align: center;">
+                <p style="font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--green); margin-bottom: 12px;">Monthly Sponsorship</p>
+                <h3 style="font-family: 'Playfair Display', serif; color: var(--white); font-size: 24px; margin-bottom: 20px;">Sponsor a Child</h3>
+                <p style="font-size: 16px; color: rgba(255,255,255,0.85); margin-bottom: 24px; line-height: 1.6;">Starting at $167/month, your sponsorship puts a Tuolumne County child in wellness classes every month.</p>
+                <a href="sponsors.html" class="btn" style="background-color: var(--green); font-size: 15px;">See Sponsorship Levels</a>
+            </div>
+
+        </div>
+
+        <!-- SPONSOR BAR — activate once first Elderberry+ sponsor joins -->
+        <!-- To activate: remove the style="display:none" attribute below -->
+        <div class="sponsor-bar" style="display: none;">
+            <p style="font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--text-light); margin-bottom: 20px;">Our Community Sponsors</p>
+            <div style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 40px;">
+                <!-- Add sponsor logos here as <img> tags or business names as <span> tags -->
+                <!-- Example: <img src="images/sponsor-logo.png" alt="Business Name" style="height: 50px; opacity: 0.7;"> -->
+            </div>
         </div>
 
     </section>
@@ -412,8 +451,8 @@
             <div class="split-grid">
                 <div>
                     <h3 class="forest-text mb-20" style="font-size: 28px;">About The Classes</h3>
-                    <p class="mb-20">Boclaire’s wellness classes integrate developmentally appropriate practices that support physical strength, emotional balance, focus, and self-awareness.</p>
-                    
+                    <p class="mb-20">Boclaire's wellness classes integrate developmentally appropriate practices that support physical strength, emotional balance, focus, and self-awareness.</p>
+
                     <h4 class="green-text mb-20" style="font-size: 20px; text-transform: uppercase;">Each Class May Include:</h4>
                     <ul class="custom-list">
                         <li>Creative somatic movement for emotional health</li>
@@ -423,7 +462,7 @@
                         <li>Mindful living practices, including mindful eating for a healthy lifestyle</li>
                         <li>Therapeutic sound and simple pressure points for nervous system health</li>
                     </ul>
-                    
+
                     <p style="font-weight: 700; color: var(--forest);">Classes are engaging, nurturing, and accessible for all and help cultivate confident, calm, and resilient children.</p>
                 </div>
                 <div>
@@ -445,9 +484,9 @@
             </div>
 
             <div class="class-grid">
-                
+
                 <div class="class-card">
-                    <h4>Nature’s Sensory Gym</h4>
+                    <h4>Nature's Sensory Gym</h4>
                     <p>A hands-on activity in the herbal garden growing herbs and plants. Research shows that nature-based sensory experiences can calm the brain, improve focus, and support the development of new neural pathways in children.</p>
                 </div>
 
@@ -467,7 +506,7 @@
                 </div>
 
                 <div class="class-card">
-                    <h4>Kids’ Birthday Hike Party</h4>
+                    <h4>Kids' Birthday Hike Party</h4>
                     <p>A fun and mindful outdoor celebration where children explore nature, play, and celebrate with joy and calm.</p>
                 </div>
 
@@ -489,7 +528,7 @@
                     Structure: 40 minutes of class time and 20 minutes of closing practice.
                 </p>
                 <p style="font-style: italic; margin-bottom: 20px;">All classes are designed based on individual needs and combinations of the wellness tools below:</p>
-                
+
                 <ul class="custom-list" style="color: var(--white);">
                     <li style="color: var(--white);"><strong>Creative somatic movement:</strong> Helps release emotions, build body awareness, and support inner balance.</li>
                     <li style="color: var(--white);"><strong>Fun neuro movement:</strong> Playful brain-body exercise that strengthens coordination, focus, and overall brain health.</li>
@@ -507,17 +546,17 @@
 
     <section class="founder-section">
         <div class="founder-grid">
-            
+
             <div class="founder-img-wrapper">
                 <img src="images/founder.jpg" alt="Boclaire Vaughn" />
             </div>
-            
+
             <div>
                 <span class="green-text" style="text-transform: uppercase; letter-spacing: 2px; font-size: 14px;">Your Instructor</span>
                 <h2 class="forest-text mb-20" style="font-size: 42px;">Meet Boclaire</h2>
-                
-                <p class="mb-20">Boclaire is a Natural Wellness Practitioner certified in Child Development, Yoga, and Acupressure Therapy. She is the author of Children’s Meditation Stories and the founder of Sierra Yoga Center, Mindful Mom, and the True Wellness Movement.</p>
-                
+
+                <p class="mb-20">Boclaire is a Natural Wellness Practitioner certified in Child Development, Yoga, and Acupressure Therapy. She is the author of Children's Meditation Stories and the founder of Sierra Yoga Center, Mindful Mom, and the True Wellness Movement.</p>
+
                 <p class="mb-40">Boclaire has taught for many years in Tuolumne County, offering yoga, movement, and mindfulness-based education to children, families, and the community.</p>
 
                 <h3 class="forest-text" style="font-size: 24px; border-bottom: 2px solid var(--cream); padding-bottom: 10px;">Credentials</h3>
@@ -547,7 +586,7 @@
     <section class="newsletter-section">
         <h2 style="font-family: 'Playfair Display', serif; font-size: 36px; margin-bottom: 10px;">Join the Movement</h2>
         <p style="margin-bottom: 30px; font-size: 20px;">Subscribe for updates on community classes and the garden build.</p>
-        
+
         <div class="mailerlite-wrapper">
             <div class="ml-embedded" data-form="4tjIUv"></div>
         </div>

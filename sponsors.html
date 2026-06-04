@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Become a Sponsor | True Wellness Movement</title>
+    <meta name="description" content="Sponsor a child's wellness education in Tuolumne County. Monthly sponsorship levels starting at $167/month through the True Wellness Movement.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --terracotta: #8C4339;
+            --green: #83B14E;
+            --forest: #2D5A1B;
+            --cream: #FEFCF8;
+            --white: #FFFFFF;
+            --text-dark: #2C2C2C;
+            --text-light: #444444;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: var(--white);
+            color: var(--text-dark);
+            line-height: 1.8;
+            font-size: 18px;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, h4 { font-family: 'Playfair Display', serif; font-weight: 700; line-height: 1.2; }
+
+        /* --- NAV --- */
+        .site-nav {
+            background-color: var(--forest);
+            padding: 16px 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .site-nav a {
+            color: var(--white);
+            text-decoration: none;
+            font-family: 'Lato', sans-serif;
+            font-size: 15px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            opacity: 0.9;
+            transition: opacity 0.2s ease;
+        }
+
+        .site-nav a:hover { opacity: 1; }
+
+        .site-nav .nav-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 18px;
+            text-transform: none;
+            letter-spacing: 0;
+        }
+
+        /* --- PAGE HERO --- */
+        .page-hero {
+            background-color: var(--forest);
+            padding: 80px 20px;
+            text-align: center;
+            color: var(--white);
+        }
+
+        .page-hero .eyebrow {
+            font-family: 'Lato', sans-serif;
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--green);
+            margin-bottom: 20px;
+        }
+
+        .page-hero h1 {
+            font-size: clamp(32px, 5vw, 56px);
+            color: var(--white);
+            margin-bottom: 20px;
+        }
+
+        .page-hero p {
+            font-size: clamp(18px, 2.5vw, 22px);
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.9;
+            line-height: 1.7;
+        }
+
+        /* --- SECTION CONTAINERS --- */
+        .section-container {
+            padding: 80px 20px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .text-center { text-align: center; }
+        .green-text { color: var(--green); font-weight: 700; }
+        .forest-text { color: var(--forest); }
+        .mb-10 { margin-bottom: 10px; }
+        .mb-20 { margin-bottom: 20px; }
+        .mb-40 { margin-bottom: 40px; }
+
+        /* --- IMPACT STAT BAR --- */
+        .impact-bar {
+            background-color: var(--cream);
+            padding: 50px 20px;
+        }
+
+        .impact-bar-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+
+        .impact-stat strong {
+            display: block;
+            font-family: 'Playfair Display', serif;
+            font-size: 42px;
+            color: var(--forest);
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+
+        .impact-stat span {
+            font-size: 15px;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* --- TIER CARDS --- */
+        .tiers-section {
+            background-color: var(--white);
+            padding: 80px 20px;
+        }
+
+        .tiers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 30px;
+            max-width: 1100px;
+            margin: 50px auto 0;
+        }
+
+        .tier-card {
+            border: 1px solid #E8E8E8;
+            border-radius: 8px;
+            padding: 36px 28px;
+            position: relative;
+            background: var(--white);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .tier-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+        }
+
+        .tier-card.featured {
+            border-color: var(--forest);
+            border-width: 2px;
+        }
+
+        .tier-card.featured::before {
+            content: "Most Impactful";
+            position: absolute;
+            top: -14px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--forest);
+            color: var(--white);
+            font-family: 'Lato', sans-serif;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 4px 14px;
+            border-radius: 20px;
+            white-space: nowrap;
+        }
+
+        .tier-icon {
+            font-size: 32px;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .tier-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 26px;
+            color: var(--forest);
+            margin-bottom: 4px;
+        }
+
+        .tier-label {
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--green);
+            margin-bottom: 20px;
+        }
+
+        .tier-price {
+            font-family: 'Playfair Display', serif;
+            font-size: 36px;
+            color: var(--terracotta);
+            line-height: 1;
+            margin-bottom: 4px;
+        }
+
+        .tier-price span {
+            font-family: 'Lato', sans-serif;
+            font-size: 16px;
+            color: var(--text-light);
+            font-weight: 400;
+        }
+
+        .tier-impact {
+            background-color: var(--cream);
+            border-radius: 6px;
+            padding: 14px 16px;
+            margin: 20px 0;
+            font-size: 15px;
+            line-height: 1.6;
+            color: var(--text-dark);
+        }
+
+        .tier-impact strong {
+            color: var(--forest);
+            display: block;
+            margin-bottom: 2px;
+        }
+
+        .tier-divider {
+            border: none;
+            border-top: 1px solid #EAEAEA;
+            margin: 20px 0;
+        }
+
+        .tier-benefits {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 28px;
+        }
+
+        .tier-benefits li {
+            font-size: 15px;
+            color: var(--text-light);
+            padding: 6px 0 6px 22px;
+            position: relative;
+            line-height: 1.5;
+        }
+
+        .tier-benefits li::before {
+            content: "✓";
+            color: var(--green);
+            font-weight: 700;
+            position: absolute;
+            left: 0;
+        }
+
+        .tier-cta {
+            display: block;
+            text-align: center;
+            background-color: var(--green);
+            color: var(--white);
+            padding: 14px 20px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-family: 'Lato', sans-serif;
+            font-weight: 700;
+            font-size: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: background-color 0.3s ease;
+        }
+
+        .tier-cta:hover { background-color: var(--forest); }
+
+        .tier-card.featured .tier-cta {
+            background-color: var(--forest);
+        }
+
+        .tier-card.featured .tier-cta:hover {
+            background-color: #1a3a0e;
+        }
+
+        /* --- WHY SPONSOR SECTION --- */
+        .why-section {
+            background-color: var(--cream);
+            padding: 80px 20px;
+        }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            max-width: 1100px;
+            margin: 50px auto 0;
+        }
+
+        .why-box {
+            text-align: center;
+        }
+
+        .why-box h3 {
+            color: var(--forest);
+            font-size: 22px;
+            margin-bottom: 12px;
+        }
+
+        .why-box p {
+            font-size: 16px;
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        /* --- CONTACT FORM --- */
+        .contact-section {
+            background-color: var(--forest);
+            padding: 80px 20px;
+            text-align: center;
+            color: var(--white);
+        }
+
+        .contact-section h2 {
+            font-size: clamp(28px, 4vw, 42px);
+            color: var(--white);
+            margin-bottom: 15px;
+        }
+
+        .contact-section p {
+            font-size: 18px;
+            opacity: 0.9;
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .contact-form {
+            background: var(--white);
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 40px;
+            border-radius: 8px;
+            text-align: left;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-dark);
+            margin-bottom: 8px;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid #DCDCDC;
+            border-radius: 4px;
+            font-family: 'Lato', sans-serif;
+            font-size: 16px;
+            color: var(--text-dark);
+            background: var(--white);
+            transition: border-color 0.2s ease;
+            appearance: none;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--green);
+        }
+
+        .form-group textarea {
+            height: 100px;
+            resize: vertical;
+        }
+
+        .form-submit {
+            display: block;
+            width: 100%;
+            background-color: var(--green);
+            color: var(--white);
+            border: none;
+            padding: 16px;
+            border-radius: 4px;
+            font-family: 'Lato', sans-serif;
+            font-weight: 700;
+            font-size: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .form-submit:hover { background-color: var(--forest); }
+
+        .form-note {
+            text-align: center;
+            font-size: 14px;
+            color: var(--text-light);
+            margin-top: 16px;
+        }
+
+        /* --- FOOTER --- */
+        .simple-footer {
+            background-color: var(--text-dark);
+            color: var(--white);
+            text-align: center;
+            padding: 30px 20px;
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        .simple-footer a {
+            color: var(--green);
+            text-decoration: none;
+        }
+
+        /* --- MOBILE --- */
+        @media (max-width: 768px) {
+            .page-hero { padding: 60px 20px; }
+            .tiers-section { padding: 50px 20px; }
+            .why-section { padding: 50px 20px; }
+            .contact-section { padding: 50px 20px; }
+            .contact-form { padding: 28px 20px; }
+            .tiers-grid { grid-template-columns: 1fr; }
+            .impact-bar { padding: 40px 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAV -->
+    <nav class="site-nav">
+        <a href="index.html" class="nav-logo">True Wellness Movement</a>
+        <a href="index.html">← Back to Home</a>
+    </nav>
+
+    <!-- PAGE HERO -->
+    <section class="page-hero">
+        <p class="eyebrow">Monthly Sponsorship</p>
+        <h1>Sponsor a Child's<br>Wellness Education</h1>
+        <p>Your monthly sponsorship puts a Tuolumne County child in nature-based wellness classes — building calm minds, strong bodies, and resilient hearts.</p>
+    </section>
+
+    <!-- IMPACT STATS -->
+    <section class="impact-bar">
+        <div class="impact-bar-inner">
+            <div class="impact-stat">
+                <strong>$10.42</strong>
+                <span>Per child, per hour</span>
+            </div>
+            <div class="impact-stat">
+                <strong>3:1</strong>
+                <span>Child-to-instructor ratio</span>
+            </div>
+            <div class="impact-stat">
+                <strong>16 hrs</strong>
+                <span>Wellness education per child monthly</span>
+            </div>
+            <div class="impact-stat">
+                <strong>7,500</strong>
+                <span>Children in Tuolumne County who need this</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- TIER CARDS -->
+    <section class="tiers-section">
+        <div class="text-center">
+            <p class="green-text" style="letter-spacing: 2px; text-transform: uppercase; font-size: 14px;">Choose Your Level</p>
+            <h2 class="forest-text" style="font-size: clamp(28px, 4vw, 42px); margin-top: 10px;">The Healing Journey Sponsorship Levels</h2>
+            <p style="max-width: 650px; margin: 15px auto 0; color: var(--text-light); font-size: 17px;">Each level is named for a healing plant of the Sierra foothills — a place where this program is taking root.</p>
+        </div>
+
+        <div class="tiers-grid">
+
+            <!-- CALIFORNIA POPPY -->
+            <div class="tier-card">
+                <span class="tier-icon">🌸</span>
+                <p class="tier-label">Entry Level</p>
+                <h3 class="tier-name">California Poppy</h3>
+                <div class="tier-price">$167 <span>/ month</span></div>
+                <div class="tier-impact">
+                    <strong>Sponsors 1 child</strong>
+                    16 hours of wellness education each month
+                </div>
+                <hr class="tier-divider">
+                <ul class="tier-benefits">
+                    <li>Name listed on our Sponsors page</li>
+                    <li>Annual thank-you post on social media</li>
+                    <li>Quarterly impact email update</li>
+                </ul>
+                <a href="#sponsor-form" class="tier-cta">Become a Poppy Sponsor</a>
+            </div>
+
+            <!-- YERBA SANTA -->
+            <div class="tier-card">
+                <span class="tier-icon">🌿</span>
+                <p class="tier-label">Community Level</p>
+                <h3 class="tier-name">Yerba Santa</h3>
+                <div class="tier-price">$500 <span>/ month</span></div>
+                <div class="tier-impact">
+                    <strong>Sponsors 3 children</strong>
+                    48 hours of wellness education each month
+                </div>
+                <hr class="tier-divider">
+                <ul class="tier-benefits">
+                    <li>Logo + website link on Sponsors page</li>
+                    <li>Monthly social media mention</li>
+                    <li>Quarterly impact email update</li>
+                    <li>Printable "Community Sponsor" certificate</li>
+                </ul>
+                <a href="#sponsor-form" class="tier-cta">Become a Yerba Santa Sponsor</a>
+            </div>
+
+            <!-- ELDERBERRY -->
+            <div class="tier-card featured">
+                <span class="tier-icon">🌳</span>
+                <p class="tier-label">Sustaining Level</p>
+                <h3 class="tier-name">Elderberry</h3>
+                <div class="tier-price">$1,000 <span>/ month</span></div>
+                <div class="tier-impact">
+                    <strong>Sponsors 6 children</strong>
+                    96 hours of wellness education each month
+                </div>
+                <hr class="tier-divider">
+                <ul class="tier-benefits">
+                    <li>Logo on homepage sponsor bar</li>
+                    <li>Named in every email newsletter</li>
+                    <li>Monthly social media mention</li>
+                    <li>Quarterly impact email update</li>
+                    <li>Printable "Community Sponsor" certificate</li>
+                    <li>Invitation to observe a class session</li>
+                </ul>
+                <a href="#sponsor-form" class="tier-cta">Become an Elderberry Sponsor</a>
+            </div>
+
+            <!-- OAK -->
+            <div class="tier-card">
+                <span class="tier-icon">🌲</span>
+                <p class="tier-label">Founding Level</p>
+                <h3 class="tier-name">Oak</h3>
+                <div class="tier-price">$2,000 <span>/ month</span></div>
+                <div class="tier-impact">
+                    <strong>Sponsors 12 children</strong>
+                    192 hours of wellness education each month
+                </div>
+                <hr class="tier-divider">
+                <ul class="tier-benefits">
+                    <li>Featured sponsor spotlight (your story + why you give)</li>
+                    <li>Logo on homepage sponsor bar</li>
+                    <li>Named in every email newsletter</li>
+                    <li>Monthly social media mention</li>
+                    <li>Quarterly impact email update</li>
+                    <li>Printable "Community Sponsor" certificate</li>
+                    <li>Named garden bed when physical garden is built</li>
+                    <li>Quarterly personal update call from Boclaire</li>
+                    <li>First right of renewal each year</li>
+                </ul>
+                <a href="#sponsor-form" class="tier-cta">Become an Oak Sponsor</a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- WHY SPONSOR -->
+    <section class="why-section">
+        <div class="text-center">
+            <h2 class="forest-text" style="font-size: clamp(26px, 4vw, 38px);">Why This Program Matters</h2>
+        </div>
+        <div class="why-grid">
+            <div class="why-box">
+                <h3>The Gap Is Real</h3>
+                <p>Tuolumne County has fewer than 10 licensed child therapists serving 7,500 children. Families face 3–6 month waitlists. The nearest facility is 60 miles away in Modesto.</p>
+            </div>
+            <div class="why-box">
+                <h3>Nature Works</h3>
+                <p>Research shows 120 minutes per week in nature produces measurably better health outcomes. Just 20 minutes of outdoor exposure reduces ADHD symptoms to levels comparable to medication.</p>
+            </div>
+            <div class="why-box">
+                <h3>Your Investment Is Leveraged</h3>
+                <p>At $10.42 per child per hour, this program delivers more per dollar than individual therapy ($100–200/session). Small group care, consistent support, lasting results.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT FORM -->
+    <section class="contact-section" id="sponsor-form">
+        <h2>Ready to Sponsor?</h2>
+        <p>Tell us which level interests you. Boclaire will follow up personally within 48 hours.</p>
+
+        <form class="contact-form" action="mailto:truewellnessmovement@gmail.com" method="POST" enctype="text/plain">
+            <div class="form-group">
+                <label for="name">Your Name</label>
+                <input type="text" id="name" name="name" placeholder="First and last name" required />
+            </div>
+            <div class="form-group">
+                <label for="business">Business or Organization Name</label>
+                <input type="text" id="business" name="business" placeholder="Optional" />
+            </div>
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" placeholder="your@email.com" required />
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" placeholder="Optional" />
+            </div>
+            <div class="form-group">
+                <label for="tier">Sponsorship Level</label>
+                <select id="tier" name="tier" required>
+                    <option value="" disabled selected>Select a level</option>
+                    <option value="California Poppy — $167/month (1 child)">🌸 California Poppy — $167/month — 1 child</option>
+                    <option value="Yerba Santa — $500/month (3 children)">🌿 Yerba Santa — $500/month — 3 children</option>
+                    <option value="Elderberry — $1,000/month (6 children)">🌳 Elderberry — $1,000/month — 6 children</option>
+                    <option value="Oak — $2,000/month (12 children)">🌲 Oak — $2,000/month — 12 children</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="message">Anything you'd like us to know?</label>
+                <textarea id="message" name="message" placeholder="Questions, comments, or how you heard about us..."></textarea>
+            </div>
+            <button type="submit" class="form-submit">Send My Sponsorship Inquiry</button>
+            <p class="form-note">Boclaire will follow up personally within 48 hours.</p>
+        </form>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="simple-footer">
+        <p>True Wellness Movement &nbsp;·&nbsp; Tuolumne County, CA &nbsp;·&nbsp; <a href="mailto:truewellnessmovement@gmail.com">truewellnessmovement@gmail.com</a> &nbsp;·&nbsp; (209) 352-8507</p>
+        <p style="margin-top: 8px;"><a href="index.html">← Back to Home</a></p>
+    </footer>
+
+</body>
+</html>
