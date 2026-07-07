@@ -51,6 +51,105 @@
 
         h1, h2, h3, h4 { font-family: 'Playfair Display', serif; font-weight: 700; line-height: 1.2; }
 
+        /* --- NAV --- */
+        .site-nav {
+            background-color: var(--forest);
+            padding: 0 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 64px;
+        }
+
+        .site-nav .nav-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 18px;
+            color: var(--white);
+            text-decoration: none;
+            flex-shrink: 0;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .nav-links a {
+            color: rgba(255,255,255,0.85);
+            text-decoration: none;
+            font-family: 'Lato', sans-serif;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            padding: 8px 14px;
+            border-radius: 4px;
+            transition: color 0.2s ease, background-color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--white);
+            background-color: rgba(255,255,255,0.1);
+        }
+
+        .nav-links .nav-sponsor-btn {
+            border: 1.5px solid rgba(255,255,255,0.5);
+            color: var(--white);
+            margin-left: 8px;
+        }
+
+        .nav-links .nav-sponsor-btn:hover {
+            background-color: rgba(255,255,255,0.15);
+            border-color: var(--white);
+        }
+
+        .nav-links .nav-donate-btn {
+            background-color: var(--terracotta);
+            color: var(--white);
+            margin-left: 4px;
+        }
+
+        .nav-links .nav-donate-btn:hover {
+            background-color: #7a3831;
+        }
+
+        .nav-hamburger {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 26px;
+            cursor: pointer;
+            padding: 8px;
+            line-height: 1;
+        }
+
+        @media (max-width: 768px) {
+            .site-nav {
+                flex-wrap: wrap;
+                height: auto;
+                padding: 14px 20px;
+            }
+            .nav-hamburger { display: block; }
+            .nav-links {
+                display: none;
+                width: 100%;
+                flex-direction: column;
+                align-items: stretch;
+                padding: 8px 0 14px;
+                gap: 2px;
+            }
+            .nav-links.open { display: flex; }
+            .nav-links a { width: 100%; box-sizing: border-box; }
+            .nav-links .nav-sponsor-btn,
+            .nav-links .nav-donate-btn {
+                margin-left: 0;
+                margin-top: 6px;
+                text-align: center;
+            }
+        }
+
         /* --- VISIBILITY TOGGLES (Desktop vs Mobile Copy) --- */
         .mobile-only { display: none !important; }
         .desktop-only { display: block !important; }
@@ -450,6 +549,18 @@
 </head>
 <body>
 
+    <!-- NAV -->
+    <nav class="site-nav">
+        <a href="index.html" class="nav-logo">True Wellness Movement</a>
+        <button class="nav-hamburger" aria-label="Open menu" onclick="this.parentElement.querySelector('.nav-links').classList.toggle('open')">☰</button>
+        <div class="nav-links">
+            <a href="#classes">Classes</a>
+            <a href="#boclaire">Meet Boclaire</a>
+            <a href="sponsors.html" class="nav-sponsor-btn">Become a Sponsor</a>
+            <a href="https://www.donorbox.org/true-wellness" target="_blank" class="nav-donate-btn">Donate</a>
+        </div>
+    </nav>
+
     <header class="hero-wrap">
         <div class="hero-overlay"></div>
         <img src="images/hero.jpg" alt="Children exploring nature" />
@@ -514,7 +625,7 @@
 
     </section>
 
-    <section style="background-color: var(--cream);">
+    <section id="classes" style="background-color: var(--cream);">
         <div class="section-container">
             <div class="text-center mb-40">
                 <p class="green-text" style="letter-spacing: 2px; text-transform: uppercase;">True Wellness Movement</p>
@@ -596,16 +707,6 @@
                     <p>A peaceful nature retreat where guests stay in their own RV while enjoying rest, reflection, and optional wellness experiences.</p>
                 </div>
 
-                 <div class="class-card">
-                    <h4>Teen Girls Bible Circle</h4>
-                    <p>A welcoming outdoor space for teen girls to gather, read, share, listen, and live out God’s Word together.</p>
-                </div>
-
-                 <div class="class-card">
-                    <h4>Children’s Bible Study</h4>
-                    <p>Focus on love, kindness, forgiveness, and other important life-changing values found in the Bible</p>
-                </div>
-
             </div>
 
             <div style="background-color: var(--forest); color: var(--white); padding: 40px; border-radius: 8px; margin-top: 60px;">
@@ -630,7 +731,7 @@
         </div>
     </section>
 
-    <section class="founder-section">
+    <section id="boclaire" class="founder-section">
         <div class="founder-grid">
 
             <div class="founder-img-wrapper">
